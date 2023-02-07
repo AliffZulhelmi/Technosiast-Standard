@@ -14,29 +14,29 @@
  if(!empty($_SESSION['tahap']) and $_SESSION['tahap'] == 'staff') 
  {
     echo "
-    <a href='/index.php'>Laman Utama</a>
-    <a href='/senarai-pembeli.php'>Senarai Pembeli</a>
-    <a href='/senarai-staff.php'>Senarai Staff</a>
-    <a href='/senarai-barang.php'>Senarai Barang</a>
-    <a href='/logout.php'>Logout</a>
+    <a href='index.php'>Laman Utama</a>
+    <a href='senarai-pembeli.php'>Senarai Pembeli</a>
+    <a href='senarai-staff.php'>Senarai Staff</a>
+    <a href='senarai-barang.php'>Senarai Barang</a>
+    <a href='logout.php'>Logout</a>
     <hr>";
  }
  # Menu pembeli : dipaparkan sekiranya pembeli telah login
  else if(!empty($_SESSION['tahap']) and $_SESSION['tahap'] == "pembeli")
  {
     echo "
-    <a href='/index.php'>Laman Utama</a>
-    <a href='/pembeli-pilih'>Perbandingan Barang</a>
-    <a href='/logout.php'>Logout</a>
+    <a href='index.php'>Laman Utama</a>
+    <a href='pembeli-pilih'>Perbandingan Barang</a>
+    <a href='logout.php'>Logout</a>
     <hr>";
  }
  else {
    #menu Laman Utama : dipaparkan sekiranya staff atau pembeli tidak login
    echo "
-    <a href='/index.php'>Laman Utama</a>
-    <a href='/pembeli-signup-borang.php'>Pengguna Baru</a>
-    <a href='/pembeli-login-borang.php'>Login Pengguna</a>
-    <a href='/staff-login-borang.php'>Login Staff</a>
+    <a href='index.php'>Laman Utama</a>
+    <a href='pembeli-signup-borang.php'>Pengguna Baru</a>
+    <a href='pembeli-login-borang.php'>Login Pengguna</a>
+    <a href='staff-login-borang.php'>Login Staff</a>
     <hr>";
  }
  ?>
