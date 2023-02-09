@@ -12,8 +12,8 @@ if(!empty($_POST['nokp']) and !empty($_POST['katalaluan']))
     # Wujud di pangkalan data atau tidak
     $query_login = "select * from staff
     where
-            NokpStaf = '".$_POST['nokp']."'
-    and     PassStaf = '".$_POST['katalaluan']."' ";
+            nokp_staff = '".$_POST['nokp']."'
+    and     katalaluan_staff = '".$_POST['katalaluan']."' ";
 
     # Melaksanakan arahan membandingkan data
     $laksana_query = mysqli_query($condb,$query_login);
@@ -25,7 +25,7 @@ if(!empty($_POST['nokp']) and !empty($_POST['katalaluan']))
         $m = mysqli_fetch_array($laksana_query);
 
         # Mengumpukkan kepada pembolehubah session
-        $_SESSION['nokp'] = $m['NokpStaf'];
+        $_SESSION['nokp'] = $m['nokp_staff'];
         $_SESSION['tahap'] = 'staff';
 
         # Membukan laman index.php

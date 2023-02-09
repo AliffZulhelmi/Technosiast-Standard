@@ -26,7 +26,7 @@
  {
     echo "
     <a href='index.php'>Laman Utama</a>
-    <a href='pembeli-pilih'>Perbandingan Barang</a>
+    <a href='pembeli-pilih.php'>Perbandingan Barang</a>
     <a href='logout.php'>Logout</a>
     <hr>";
  }

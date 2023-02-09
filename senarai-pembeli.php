@@ -47,14 +47,14 @@ $laksana = mysqli_query($condb,$arahan_papar);
     {
         # Memaparkan senarai nama dalam jadual
         echo"<tr>
-        <td>".$m['NamaPembeli']."</td>
-        <td>".$m['NokpPembeli']."</td>
-        <td>".$m['PassPembeli']."</td> ";
+        <td>".$m['nama_pembeli']."</td>
+        <td>".$m['nokp_pembeli']."</td>
+        <td>".$m['katalaluan_pembeli']."</td> ";
 
         #memaparkan navigasi untuk hapus data pembeli
         echo"<td>
         
-        |<a href='pembeli-padam-proses.php?nokp=".$m['NokpPembeli']."'
+        |<a href='pembeli-padam-proses.php?nokp=".$m['nokp_pembeli']."'
         onClick=\"return confirm('Anda pasti anda ingin memadam data ini.')\">
         Hapus</a>|
 

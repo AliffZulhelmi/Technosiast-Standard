@@ -14,8 +14,8 @@ include('connection.php');
 # 10 barangan yang ada dalam pangkalan data
 $sql_pilihan = '
 SELECT* FROM telefon, jenama
-WHERE telefon.KodJenama = jenama.KodJenama
-group by telefon.NamaBarang
+WHERE telefon.kod_jenama = jenama.kod_jenama
+group by telefon.nama_barang
 ORDER BY rand() limit 5 ';
 
 # melaksanakan arahan sql_pilihan
@@ -37,12 +37,12 @@ else{
     while($n=mysqli_fetch_array($laksana_pilihan)){
         # memaparkan semula data diambil oleh pembolehubah $n
         echo " <tr>
-                  <td><img width='50%' src='img/".$n['gambar']."></td>
+                  <td><img width='50%' height='50%' src='img/".$n['gambar']."'></td>
                   <td>
-                      <b> ".$n['NamaJenama']."</b><br>
-                          ".$n['NamaBarang']." <br>
-                          ".$n['Storan']." <br>
-                          RM ".$n['Harga']."
+                      <b> ".$n['jenama_barang']."</b><br>
+                          ".$n['nama_barang']." <br>
+                          ".$n['storan']." <br>
+                          RM ".$n['harga']."
                   </td>
                 </tr>";
     }
