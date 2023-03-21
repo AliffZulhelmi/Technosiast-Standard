@@ -33,7 +33,7 @@ include('guard-staff.php');
 $tambahan="";
 if(!empty($_POST['nama']))
 {
-    $tambahan= "where NamaPembeli like '%".$_POST['nama']."%'";
+    $tambahan= "where nama_pembeli like '%".$_POST['nama']."%'";
 }
 
 # Arahan query untuk mencari senarai nama pembeli

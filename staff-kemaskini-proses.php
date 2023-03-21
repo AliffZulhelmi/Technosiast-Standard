@@ -22,7 +22,7 @@ if(!empty($_POST))
     $arahan = "update staff set 
     nama_staff = '".$_POST['nama']."',
     nokp_staff = '".$_POST['nokp']."',
-    katalaluan_staff = '".$_POST['katalaluan']."',
+    katalaluan_staff = '".$_POST['katalaluan']."'
     where
     nokp_staff = '".$_GET['nokp_lama']."' ";
 

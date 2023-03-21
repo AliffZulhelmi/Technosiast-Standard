@@ -62,21 +62,22 @@ if(mysqli_num_rows($laksana)<=0){
     {
         # Umpukkan data kepada tatasusunan bagi tujuan kemaskini barang
         $data_get=array(
-            'NamaBarang' => $m['nama_barang'],
-            'NamaJenama' => $m['jenama_barang'],
-            'Harga' => $m['harga'],
+            'nama_barang' => $m['nama_barang'],
+            'jenama_barang' => $m['jenama_barang'],
+            'harga' => $m['harga'],
+            'storan' => $m['storan'],
             'gambar' => $m['gambar'],
-            'KodBarang' => $m['kod_barang']
+            'kod_barang' => $m['kod_barang']
         );
 
 # Memaparkan senarai dalam jadual
 echo " <tr>
-       <td><img width='50%' src='img/".$m['gambar']."'></td>
+       <td><img height='50%' width='50%' src='img/".$m['gambar']."'></td>
        <td>
        <b> Jenama        : ".$m['jenama_barang']."</b><br>
            Nama Telefon  : ".$m['nama_barang']."</br>
            Storan        : ".$m['storan']." <br>
-           Harga         : ".$m['harga']."<br>
+           Harga         : RM".$m['harga']."<br>
            Didaftar Oleh : ".$m['nama_staff'];
         
         # Memaparkan navigasi untuk kemaskini dan hapus data barang

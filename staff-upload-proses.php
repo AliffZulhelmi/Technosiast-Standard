@@ -14,7 +14,7 @@ if (isset($_POST['btn-upload']))
     $jenisfail=pathinfo($namafail,PATHINFO_EXTENSION);
 
     # Menguji jenis fail dan sail fail
-        if($_FILES["data_staff"]["size"]>0 AND $jenisfail=="text")
+        if($_FILES["data_staff"]["size"]>0 AND $jenisfail=="txt")
         {
             # Membuka fail yang diambil
             $fail_data_staff=fopen($namafailsementara,"r");

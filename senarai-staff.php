@@ -26,7 +26,7 @@ include ('guard-staff.php');
 
 <?php
 
-# Araham query untuk mencari senarai nama staff
+# Arahan query untuk mencari senarai nama staff
 $arahan_papar="select* from staff ";
 
 # Laksanakan arahan mencari data staff
