@@ -54,9 +54,9 @@ $laksana = mysqli_query($condb,$arahan_papar);
         #memaparkan navigasi untuk hapus data pembeli
         echo"<td>
         
-        |<a href='pembeli-padam-proses.php?nokp=".$m['nokp_pembeli']."'
+        <a class='w3-button w3-round-medium w3-red' href='pembeli-padam-proses.php?nokp=".$m['nokp_pembeli']."'
         onClick=\"return confirm('Anda pasti anda ingin memadam data ini.')\">
-        Hapus</a>|
+        <i class=\"fa fa-trash w3-large\"></i></a>
 
         </td>
         </tr>";

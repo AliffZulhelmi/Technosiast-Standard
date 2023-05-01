@@ -8,7 +8,7 @@ include ('guard-staff.php');
 include ('connection.php');
 
 ?>
-<h3> Senarai barang </h3>
+<h3> Senarai Barang </h3>
 <!-- Bahagian 1 : memaparkan borang untuk memilih jenama -->
 <form action='' method='POST'>
 
@@ -23,17 +23,15 @@ include ('connection.php');
     ?>
 </select>
 
-    </select> <input type='submit' value='Papar'>
+    </select> <input id="button-papar" type='submit' value='Papar'>
+
 
 </form>
-|<a href='barang-daftar-borang.php'>Daftar Barang Baru</a>|
+<a id="button-papar" href='barang-daftar-borang.php'>Daftar Barang Baru</a>
 
 <!-- Memanggil fail butang-saiz bagi membolehkan pengguna mengubah saiz tulisan -->
 <?php include ('butang-saiz.php'); ?>
-
-<!-- Header bagi jadual untuk memaparkan senarai barang --> 
-<table border='1' id='saiz'>
-
+<br>;
 <?php
 
 # syarat tambahan yang akan dimasukkan dalam arahan(query) senarai barang
@@ -70,30 +68,43 @@ if(mysqli_num_rows($laksana)<=0){
             'kod_barang' => $m['kod_barang']
         );
 
-# Memaparkan senarai dalam jadual
-echo " <tr>
-       <td><img height='50%' width='50%' src='img/".$m['gambar']."'></td>
-       <td>
-       <b> Jenama        : ".$m['jenama_barang']."</b><br>
-           Nama Telefon  : ".$m['nama_barang']."</br>
-           Storan        : ".$m['storan']." <br>
-           Harga         : RM".$m['harga']."<br>
-           Didaftar Oleh : ".$m['nama_staff'];
-        
+    # Memaparkan senarai dalam jadual
+    echo '<div class="product">';
+    echo '<img width="200px" height="200px" src="img/' . $m["gambar"] . '">';
+    echo '<h2>' . $m["nama_barang"] . '</h2>';
+    echo '<p>Storan : ' . $m["storan"] . '</p>';
+    echo '<p>Harga : RM' . $m["harga"] . '</p>';
+
         # Memaparkan navigasi untuk kemaskini dan hapus data barang
-        echo "<br>
+        echo "
 
-|<a href='barang-kemaskini-borang.php?".http_build_query($data_get)."'>
-Kemaskini harga</a>
+        <a class='w3-button w3-round-medium w3-blue' href='barang-kemaskini-borang.php?".http_build_query($data_get)."'><i class=\"fa fa-wrench w3-large\"></i></a>
+        
+        <a class='w3-button w3-round-medium w3-red' href='barang-padam-proses.php?kod=".$m['kod_barang']."'onClick=\"return confirm('Anda pasti anda ingin memadam data ini.')\"><i class=\"fa fa-trash w3-large\"></i></a>";
 
-|<a href='barang-padam-proses.php?kod=".$m['kod_barang']."'
-onClick=\"return confirm('Anda pasti anda ingin memadam data ini.')\">
-Hapus</a>|
-          
-</td>
-</tr>";
+    echo '</div>';
+    echo '  <style>
+
+    .product {
+    display: inline-block;
+    margin: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    width: 200px;
+    }
+
+    .product h2 {
+    font-size: 18px;
+    margin-top: 10px;
+    }
+
+    .product p {
+    margin: 10px 0;
+    font-size: 14px;
+    }
+    </style>';
 
     }
 ?>
-</table>
 <?php include ('footer.php'); ?>

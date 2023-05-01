@@ -5,10 +5,11 @@ session_start();
 # Memanggil fail header.php dan fail connection.php
 include('header.php');
 include('connection.php');
+include('slideshow.php')
 ?>
 
-<hr>
-<h3>Tawaran Telefon Bimbit Termurah</h3>
+
+<h3 style='text-align:center;font-family: "EB Garamond", serif;'>TAWARAN TELEFON BIMBIT TERMURAH</h3>
 <?php
 # arahan SQL untuk memaparkan secara rawak
 # 10 barangan yang ada dalam pangkalan data
@@ -28,25 +29,83 @@ if(mysqli_num_rows($laksana_pilihan)==0){
     echo "Tiada barangan yang direkodkan";
 }
 else{
-    echo "<hr>";
-    #jika terdapat barangan yang ditemui
-    #papar dalam bentuk jadual.
-    echo "<table border='1'>";
+
 
     #Pembolehubah $n mengambil data yang ditemui
     while($n=mysqli_fetch_array($laksana_pilihan)){
         # memaparkan semula data diambil oleh pembolehubah $n
-        echo " <tr>
-                  <td><img width='50%' height='50%' src='img/".$n['gambar']."'></td>
-                  <td>
-                      <b> ".$n['jenama_barang']."</b><br>
-                          ".$n['nama_barang']." <br>
-                          ".$n['storan']." <br>
-                          RM ".$n['harga']."
-                  </td>
-                </tr>";
-    }
-    echo "</table>";
+
+            echo '<a href="senarai-barang.php">';
+            echo '<div class="product">';
+            echo '<img width="200px" height="200px" src="img/' . $n["gambar"] . '">';
+            echo '<h2>' . $n["nama_barang"] . '</h2>';
+            echo '<p>Storan : ' . $n["storan"] . 'GB</p>';
+            echo '<p1>Harga : RM' . $n["harga"] . '</p1>';
+            echo '</div>';
+            echo '</a>';
+            echo '  <style>
+            .product {
+              display: inline-block;
+              margin: 10px;
+              border: 1px solid #ccc;
+              padding: 10px;
+              text-align: center;
+              width: 200px;
+              transition: all 0.6s ease;
+              position: relative;
+            }
+
+            .product:hover {
+                transform: scale(1.05);
+                box-shadow: 0px 0px 10px #ccc;
+                background-color: #f2f2f2;
+              }
+            
+            .product h2 {
+                color: black;
+                font-size: 18px;
+                margin-top: 10px;
+                position: relative;
+                display: inline-block;
+                z-index: 1;
+              }
+
+            .product h2::after {
+                color: blue;
+                content: "";
+                position: absolute;
+                height: 1px;
+                bottom: -2px;
+                left: 0;
+                background-color: #000;
+                visibility: hidden;
+                transform: scaleX(0);
+                transition: all 0.3s ease-in-out 0s;
+                z-index: -1;
+              }
+
+            .product:hover h2::after {
+                color: blue;
+                visibility: visible;
+                transform: scaleX(1);
+                width: 100%;
+              }
+            
+            .product p {
+              color: black;
+              margin: 10px 0;
+              font-size: 15px;
+            }
+
+            .product p1 {
+                margin: 10px 0;
+                font-size: 16px;
+                font-weight: bold;
+                color: red;
+              }
+          </style>';
+          }
+    # END TO BE MODIFIED - REFERANCE : PRODUCT BOX
 }
 ?>
 <?php include ('footer.php'); ?>
